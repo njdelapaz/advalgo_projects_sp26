@@ -20,7 +20,7 @@ Go [back to home page](../../index.html)
 - I/O
 	- [test.txt](./implementation/io/test.txt)
 	- Expected outputs (same input format for each language on `test.txt`):
-		- [expected_output.txt](./implementation/io/expected_output.txt) — Python (`BloomFilter.py`)
+		- [expected_output.txt](./implementation/io/expected_output_python.txt) — Python (`BloomFilter.py`)
 		- [expected_output_java.txt](./implementation/io/expected_output_java.txt) — Java (placeholder; fill in)
 		- [expected_output_cpp.txt](./implementation/io/expected_output_cpp.txt) — C++ (placeholder; fill in)
 
