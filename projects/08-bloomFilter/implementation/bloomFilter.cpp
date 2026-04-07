@@ -33,6 +33,7 @@ public:
         uint64_t hash2 = fnv1a_hash(str, seed2);
 
         // Double hashing to generate more hash functions
+        // For each function compute its hash, and set the corresponding bit in the bit array
         for (uint64_t i = 0; i < hash_functions; i++) {
             uint64_t index = (hash1 + i * hash2) % bit_array.size();
             bit_array[index] = true;
@@ -40,10 +41,13 @@ public:
     }
 
     // Checks if an element is possibly in the set
+    // For each function compute its hash, check if the corresponding bit is set
+    // If any bit is not set, the element is definitely not in the set
     bool contains(const std::string& element) const {
         uint64_t hash1 = fnv1a_hash(element, seed1);
         uint64_t hash2 = fnv1a_hash(element, seed2);
 
+        // Double hashing again
         for (uint32_t i = 0; i < hash_functions; ++i) {
             size_t index = (hash1 + i * hash2) % bit_array.size();
             if (!bit_array[index]) {
@@ -67,7 +71,7 @@ int main() {
         double falsePosRate;
         std::cin >> expectedItems >> falsePosRate >> entries >> queries;
 
-        // m = -(n * ln(p)) / (ln(2)^2)
+        // size of bloom filter (in bits) = -(expectedItems * ln(falsePosRate)) / (ln(2)^2)
         // matches python implementation
         int bloomSize = static_cast<int>(-(expectedItems * std::log(falsePosRate)) / ln2pow2);
         bloomSize = std::max(1, bloomSize);
@@ -76,7 +80,7 @@ int main() {
         if (entries <= 0) {
             numHashFunctions = 1;
         } else {
-            // k = (m/n) * ln(2)
+            // k = (bloomSize/expectedItems) * ln(2)
             // matches python implementation
             numHashFunctions = static_cast<double>(bloomSize) / expectedItems * std::log(2);
             numHashFunctions = std::max(1, numHashFunctions);
