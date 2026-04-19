@@ -230,7 +230,7 @@ public class TreapCustom {
         if (key < root.key) {
             return search(root.left, key);
         } else {
-            rturn search(root.right, key);
+            return search(root.right, key);
         }
     }
 
