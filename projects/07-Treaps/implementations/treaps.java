@@ -11,7 +11,7 @@ public class treaps {
     /*
     a treap is a binary search tree where each node also has a random priority.
     the tree is heap ordered by priority, while also maintaining the binary search tree property by key.
-    insertions and deletions are done by splitting and merging the treap based on the priorities of the nodes.
+    insertions and deletions are done by splitting and merging the treap based on the priorities and keys of the nodes.
     this allows for efficient insertions, deletions, and searches while keeping the tree balanced on average.
     */
 
@@ -33,19 +33,18 @@ public class treaps {
     private Node root;
 
     /*
-    the split function takes a node and a key and will split the treap
-    into two: one where all the elements are greater than the key we are at and one where
-    the elements are less than or equal to the key we are at.
-    the way it works is when we are at a node, if the key is less than or equal to the current nodes value,
-    we split the nodes right subtree because there may be larger values that we need to split,
-    if the key is greater than the current nodes value, we split the nodes left subtree because there may be smaller values that we need to split.
-    so we will create two treaps both priority ordered, split by key, and we will return them as an array of nodes.
+    Splits the treap into two treaps by key:
+    - left contains all keys <= key
+    - right contains all keys > key
+
+    If root.key <= key, root belongs in the left treap, but some nodes in root.right may still be <= key,
+    so we split root.right. Otherwise root belongs in the right treap, and we split root.left.
     */
     private Node[] split(Node root, int key) {
         if (root == null) {
             return new Node[]{null, null};
         }
-        // less than or equal to the key, we split the right subtree
+        // root less than or equal to the key, we split the right subtree
         if (root.key <= key) {
             Node[] res = split(root.right, key);
             // we want to set the root.right to be all the values in the right subtree that are less than or equal to the key we are at
@@ -65,6 +64,7 @@ public class treaps {
     }
 
     /*
+    Assumes all keys in left are <= all keys in right
     the point of the merge function is to take two treaps and merge them together
     in a manner that maintains the properties of the treap,
     so we will compare the priorities of the roots of the two treaps and merge the one with the higher priority as the new root,
@@ -75,8 +75,9 @@ public class treaps {
         if (left == null) return right;
         if (right == null) return left;
 
-        // the left treap has a higher priority than the right so we will call a merge on the left treaps right child
-        // since that may have a higher priority than the right treap and we will return the left treap as the new root
+        // we call merge recursively on the child of the root with the higher priority, and then return the new root of the merged treap
+        // if the left priority is higher, choose the left root 
+        // we will merge the right treap as the right child of the left root, and then return the left root as the new root of the merged treap
         if (left.priority > right.priority) {
             left.right = merge(left.right, right);
             return left;
@@ -90,7 +91,7 @@ public class treaps {
     /*
     this insert is straightforward, so if we hit the case in our recursion that the node were on's
     priority is less than the inserted node, we will split the current node by the inserted node's key and make the inserted node the new root of the subtree,
-    and then we will set the left and right children of the new root to be the two treaps that we got from the split function,
+    and then we will set the left and right children of the new root to be the two treaps that we got from the split function 
     this allows us to insert our node while maintaining treap property
     */
     // we call insert separately because we need to create a new node
@@ -102,7 +103,8 @@ public class treaps {
     private Node insert(Node root, Node node) {
         if (root == null) return node;
         // check if node priority is > root priority,
-        // if it is we call our split function and place node at current root
+        // if it is we call our split 
+        // the point of calling split is to maintain the treap properties, we will set the left and right children of the new root to be the two treaps that we got from the split function, 
         if (node.priority > root.priority) {
             Node[] halves = split(root, node.key);
 
