@@ -8,7 +8,7 @@ Go [back to home page](../../index.html)
 <a name="overview"></a>Executive Summary
 ---------------------------------------
 
-- [Executive Summary](./executiveSummary.pdf)
+- [Executive Summary](./Executive%20Summary.pdf)
 
 <a name="overview"></a>Implementation
 ---------------------------------------
@@ -50,7 +50,7 @@ Go [back to home page](../../index.html)
 <a name="overview"></a>Slides
 ---------------------------------------
 
-- [Presentation Slides](./slides/presentation_coinChange.pptx)
+- [Presentation Slides](./slides/FinalProjectPresentation-AdvancedAlgorithms.pptx)
 
 
 <a name="overview"></a>Programming Challenge
@@ -58,9 +58,49 @@ Go [back to home page](../../index.html)
 
 - [Programming Challenge](./programmingChallenge/problemStatement.pdf)
 	- Solutions:
-		- [C++](./programmingChallenge/solutions.pcSol_cpp.cpp)
+		- [Python](./programmingChallenge/solutions/customkmpchallenge.py)
 	- Test Cases:
-		- [Case 1 input](./programmingChallenge/io/test.in.1)
-		- [Case 1 output](./programmingChallenge/io/test.out.1)
-		- ...add the others here as needed
-	
+	- [Case 1 input](./io/in1.txt)
+	- [Case 1 output](./io/out1.txt)
+	- [Case 2 input](./io/in2.txt)
+	- [Case 2 output](./io/out2.txt)
+	- [Case 3 input](./io/in3.txt)
+	- [Case 3 output](./io/out3.txt)
+	- [Case 4 input](./io/in4.txt)
+	- [Case 4 output](./io/out4.txt)
+	- [Case 5 input](./io/in5.txt)
+	- [Case 5 output](./io/out5.txt)
+	- [Case 6 input](./io/in6.txt)
+	- [Case 6 output](./io/out6.txt)
+	- [Case 7 input](./io/in7.txt)
+	- [Case 7 output](./io/out7.txt)
+	- [Case 8 input](./io/in8.txt)
+	- [Case 8 output](./io/out8.txt)
+	- [Case 9 input](./io/in9.txt)
+	- [Case 9 output](./io/out9.txt)
+	- [Case 10 input](./io/in10.txt)
+	- [Case 10 output](./io/out10.txt)
+	- [Case 11 input](./io/in11.txt)
+	- [Case 11 output](./io/out11.txt)
+	- [Case 12 input](./io/in12.txt)
+	- [Case 12 output](./io/out12.txt)
+	- [Case 13 input](./io/in13.txt)
+	- [Case 13 output](./io/out13.txt)
+	- [Case 14 input](./io/in14.txt)
+	- [Case 14 output](./io/out14.txt)
+	- [Case 15 input](./io/in15.txt)
+	- [Case 15 output](./io/out15.txt)
+	- [Case 16 input](./io/in16.txt)
+	- [Case 16 output](./io/out16.txt)
+	- [Case 17 input](./io/in17.txt)
+	- [Case 17 output](./io/out17.txt)
+	- [Case 18 input](./io/in18.txt)
+	- [Case 18 output](./io/out18.txt)
+	- [Case 19 input](./io/in19.txt)
+	- [Case 19 output](./io/out19.txt)
+	- [Case 20 input](./io/in20.txt)
+	- [Case 20 output](./io/out20.txt)
+	- [Case 21 input](./io/in21.txt)
+	- [Case 21 output](./io/out21.txt)
+	- [Case 22 input](./io/in22.txt)
+	- [Case 22 output](./io/out22.txt)
